@@ -13,9 +13,9 @@ services:
     networks:
       - hadoop_net
 
-  datanode:
+  CainoNode:
     image: bde2020/hadoop-datanode:2.0.0-hadoop3.2.1-java8
-    container_name: datanode
+    container_name: CainoNode
     platform: linux/amd64
     depends_on:
       - namenode
@@ -24,16 +24,49 @@ services:
     networks:
       - hadoop_net
 
-  datanode2:
+  EncaladaNode:
     image: bde2020/hadoop-datanode:2.0.0-hadoop3.2.1-java8
-    container_name: datanode2
+    container_name: EncaladaNode  
     platform: linux/amd64
     depends_on:
       - namenode
     env_file:
       - ./hadoop.env
     networks:
-      - hadoop_net      
+      - hadoop_net
+
+  FogachoNode:
+    image: bde2020/hadoop-datanode:2.0.0-hadoop3.2.1-java8
+    container_name: FogachoNode 
+    platform: linux/amd64
+    depends_on:
+      - namenode
+    env_file:
+      - ./hadoop.env
+    networks:
+      - hadoop_net
+
+  PalaciosNode:
+    image: bde2020/hadoop-datanode:2.0.0-hadoop3.2.1-java8
+    container_name: PalaciosNode 
+    platform: linux/amd64
+    depends_on:
+      - namenode
+    env_file:
+      - ./hadoop.env
+    networks:
+      - hadoop_net
+
+  TrujilloNode:
+    image: bde2020/hadoop-datanode:2.0.0-hadoop3.2.1-java8
+    container_name: TrujilloNode 
+    platform: linux/amd64
+    depends_on:
+      - namenode
+    env_file:
+      - ./hadoop.env
+    networks:
+      - hadoop_net
 
 networks:
   hadoop_net:
